@@ -4,8 +4,6 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Services\LineBotService;
-
-
 use Log;
 
 class LineBotController extends Controller
@@ -16,11 +14,6 @@ class LineBotController extends Controller
     {
     	$this->linebotservice = $linebotservice;
 
-    }
-
-    public function index()
-    {
-    	return view('welcome');
     }
 
     public function handle(Request $request)

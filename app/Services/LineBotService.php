@@ -9,7 +9,6 @@ use LINE\LINEBot\TemplateActionBuilder\UriTemplateActionBuilder;
 use LINE\LINEBot\MessageBuilder\TemplateBuilder\ImageCarouselColumnTemplateBuilder;
 use LINE\LINEBot\MessageBuilder\TemplateBuilder\ImageCarouselTemplateBuilder;
 use LINE\LINEBot\MessageBuilder;
-
 use LINE\LINEBot\Event\BaseEvent;
 
 use Log;
@@ -42,13 +41,8 @@ class LineBotService
         $replyToken = $arr['events'][0]['replyToken'];
         $content    = $arr['events'][0]['message']['text'];
 
-        if(strlen($content) > 5){
-        	$content = new TextMessageBuilder($content);
-        }else{
-        	$content = new TextMessageBuilder('Yeeeeeeeeeeee');
-        }
-
-
+        $content = new TextMessageBuilder($content);
+        
         return $this->lineBot->replyMessage($replyToken, $content);
 
     }
